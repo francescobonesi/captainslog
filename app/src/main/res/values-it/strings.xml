@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CaptainsLog</string>
+
+    <string name="filter_all">Tutti</string>
+    <string name="filter_urination">Urinazione</string>
+    <string name="filter_defecation">Defecazione</string>
+
+    <string name="prev_month">Mese precedente</string>
+    <string name="next_month">Mese successivo</string>
+
+    <string name="menu_search">Cerca</string>
+    <string name="menu_import">Importa da CSV</string>
+    <string name="menu_export">Esporta in CSV</string>
+    <string name="export_successful">Esportazione riuscita</string>
+    <string name="export_failed">Esportazione fallita</string>
+    <string name="import_successful">Importazione riuscita</string>
+    <string name="import_failed">Importazione fallita</string>
+    <string name="default_export_filename">CaptainsLog_Export.csv</string>
+
+    <string name="add_edit_label_type">Tipo di Log</string>
+    <string name="type_urination">Urinazione</string>
+    <string name="type_defecation">Defecazione</string>
+
+    <string name="add_edit_hint_date">Data</string>
+    <string name="add_edit_hint_time">Ora</string>
+    <string name="add_edit_hint_notes">Note (Opzionale)</string>
+
+    <string name="add_edit_button_save">Salva</string>
+    <string name="add_edit_toast_validation_error">Seleziona un tipo.</string>
+
+    <string name="delete_confirmation_title">Conferma Eliminazione</string>
+    <string name="delete_confirmation_message">Sei sicuro di voler eliminare questo log?</string>
+    <string name="delete_button">Elimina</string>
+    <string name="cancel_button">Annulla</string>
+
+    <string name="add_event_description">Aggiungi nuovo evento</string>
+    <string name="menu_more">Altre opzioni</string>
+</resources>

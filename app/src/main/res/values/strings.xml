@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">CaptainsLog</string>
+
+    <string name="filter_all">All</string>
+    <string name="filter_urination">Urination</string>
+    <string name="filter_defecation">Defecation</string>
+
+    <string name="prev_month">Previous month</string>
+    <string name="next_month">Next month</string>
+
+    <string name="menu_search">Search</string>
+    <string name="menu_import">Import from CSV</string>
+    <string name="menu_export">Export to CSV</string>
+    <string name="export_successful">Export successful</string>
+    <string name="export_failed">Export failed</string>
+    <string name="import_successful">Import successful</string>
+    <string name="import_failed">Import failed</string>
+    <string name="default_export_filename">CaptainsLog_Export.csv</string>
+
+    <string name="add_edit_label_type">Log Type</string>
+    <string name="type_urination">Urination</string>
+    <string name="type_defecation">Defecation</string>
+
+    <string name="add_edit_hint_date">Date</string>
+    <string name="add_edit_hint_time">Time</string>
+    <string name="add_edit_hint_notes">Notes (Optional)</string>
+
+    <string name="add_edit_button_save">Save</string>
+    <string name="add_edit_toast_validation_error">Please select a type.</string>
+
+    <string name="delete_confirmation_title">Confirm Deletion</string>
+    <string name="delete_confirmation_message">Are you sure you want to delete this log?</string>
+    <string name="delete_button">Delete</string>
+    <string name="cancel_button">Cancel</string>
+
+    <string name="add_event_description">Add new log</string>
+    <string name="menu_more">More options</string>
+</resources>
