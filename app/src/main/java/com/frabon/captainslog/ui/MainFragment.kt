@@ -118,6 +118,11 @@ class MainFragment : Fragment() {
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
+                    R.id.action_stats -> {
+                        findNavController().navigate(R.id.statsFragment)
+                        true
+                    }
+
                     R.id.action_export -> {
                         exportLauncher.launch(getString(R.string.default_export_filename))
                         true
@@ -137,6 +142,7 @@ class MainFragment : Fragment() {
                     else -> false
                 }
             }
+
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
     }
 

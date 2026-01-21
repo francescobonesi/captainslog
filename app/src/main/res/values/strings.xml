@@ -19,7 +19,7 @@
 
     <string name="add_edit_label_type">Log Type</string>
     <string name="type_urination">Urination</string>
-    <string name="type_defecation">Defecation</string>
+    <string name="type_defecation">Event</string>
 
     <string name="add_edit_hint_date">Date</string>
     <string name="add_edit_hint_time">Time</string>
@@ -35,4 +35,29 @@
 
     <string name="add_event_description">Add new log</string>
     <string name="menu_more">More options</string>
+    <string name="menu_stats">Statistics</string>
+    <string name="daily_chart_for">Daily Chart for:</string>
+    <string name="current_streak">Current Streak</string>
+    <string name="longest_streak">Longest Streak</string>
+    <string name="events_per_month">Events per Month</string>
+    <string name="year">Year:</string>
+    <string name="days">%1$d Days 🔥</string>
+    <string name="today">%1$s - Today</string>
+    <string name="last_streak_days">Last Streak: %1$d Days</string>
+    <string name="current_streak_dates">%1$s - %2$s</string>
+    <string name="no_current_streak">No current streak</string>
+    <string name="current_is_longest">Current is Longest!</string>
+    <string name="keep_going">Keep going!</string>
+    <string name="days_2">%1$d Days</string>
+    <string name="current_streak_dates_2">%1$s - %2$s</string>
+    <string name="no_records">No records</string>
+    <string name="busiest_day_times">Busiest day: %1$d (%2$d times)</string>
+    <string name="no_data_for_this_month">No data for this month</string>
+    <string name="statistics">Statistics</string>
+    <string name="add_edit_event">Add/Edit Event</string>
+    <string name="month">Month</string>
+    <string name="total">Total</string>
+    <string name="avg">Average</string>
+    <string name="med">Median</string>
+    <string name="avg_day">Average per Day</string>
 </resources>

@@ -17,11 +17,16 @@
     <fragment
         android:id="@+id/addEditEventFragment"
         android:name="com.frabon.captainslog.ui.AddEditEventFragment"
-        android:label="Add/Edit Event"
+        android:label="@string/add_edit_event"
         tools:layout="@layout/fragment_add_edit_event">
         <argument
             android:name="eventId"
             app:argType="integer"
             android:defaultValue="-1" />
     </fragment>
+    <fragment
+        android:id="@+id/statsFragment"
+        android:name="com.frabon.captainslog.ui.StatsFragment"
+        android:label="@string/statistics"
+        tools:layout="@layout/fragment_stats" />
 </navigation>

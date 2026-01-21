@@ -20,7 +20,7 @@
 
     <string name="add_edit_label_type">Tipo di Log</string>
     <string name="type_urination">Urinazione</string>
-    <string name="type_defecation">Defecazione</string>
+    <string name="type_defecation">Evento</string>
 
     <string name="add_edit_hint_date">Data</string>
     <string name="add_edit_hint_time">Ora</string>
@@ -36,4 +36,29 @@
 
     <string name="add_event_description">Aggiungi nuovo evento</string>
     <string name="menu_more">Altre opzioni</string>
+    <string name="menu_stats">Statistiche</string>
+    <string name="daily_chart_for">Grafico:</string>
+    <string name="current_streak">Slancio attuale</string>
+    <string name="longest_streak">Slancio più lungo</string>
+    <string name="events_per_month">Eventi per mese</string>
+    <string name="year">Anno:</string>
+    <string name="days">%1$d Giorni 🔥</string>
+    <string name="today">%1$s - Oggi</string>
+    <string name="last_streak_days">Precedente Slancio: %1$d Giorni</string>
+    <string name="current_streak_dates">%1$s - %2$s</string>
+    <string name="no_current_streak">Nessuno slancio attuale</string>
+    <string name="current_is_longest">Lo slancio attuale è il più lungo!</string>
+    <string name="keep_going">Forza!</string>
+    <string name="days_2">%1$d Giorni</string>
+    <string name="current_streak_dates_2">%1$s - %2$s</string>
+    <string name="no_records">Nessun evento</string>
+    <string name="busiest_day_times">Giorno più intenso: %1$d (%2$d volte)</string>
+    <string name="no_data_for_this_month">Nessun dato per questo mese</string>
+    <string name="statistics">Statistiche</string>
+    <string name="add_edit_event">Aggiungi/Modifica Evento</string>
+    <string name="month">Mese</string>
+    <string name="total">Totale</string>
+    <string name="avg">Media</string>
+    <string name="med">Mediana</string>
+    <string name="avg_day">Media al Giorno</string>
 </resources>

@@ -4,23 +4,24 @@
 
     <item
         android:id="@+id/action_search"
-        android:icon="@drawable/ic_search"
+        android:icon="@android:drawable/ic_menu_search"
         android:title="@string/menu_search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
 
     <item
-        android:id="@+id/action_more"
-        android:icon="@drawable/ic_more_vert"
-        android:title="@string/menu_more"
-        app:showAsAction="ifRoom">
-        <menu>
-            <item
-                android:id="@+id/action_import"
-                android:title="@string/menu_import" />
-            <item
-                android:id="@+id/action_export"
-                android:title="@string/menu_export" />
-        </menu>
-    </item>
+        android:id="@+id/action_stats"
+        android:title="@string/menu_stats"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_export"
+        android:title="@string/menu_export"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_import"
+        android:title="@string/menu_import"
+        app:showAsAction="never" />
+
 </menu>

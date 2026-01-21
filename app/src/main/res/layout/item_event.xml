@@ -14,10 +14,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="8dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="8dp"
-        android:paddingBottom="8dp">
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp">
 
         <TextView
             android:id="@+id/event_emoji"
@@ -39,10 +39,9 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textAppearance="?attr/textAppearanceCaption"
-            android:textSize="10sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/event_meta"
-            app:layout_constraintStart_toEndOf="@id/event_emoji"
+            app:layout_constraintStart_toEndOf="@id/event_meta"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Stomach ache..." />
 
@@ -52,7 +51,9 @@
             android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceTitleLarge"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="12sp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/event_notes"
+            app:layout_constraintStart_toEndOf="@id/event_emoji"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
