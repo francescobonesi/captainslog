@@ -58,6 +58,6 @@
     <string name="month">Month</string>
     <string name="total">Total</string>
     <string name="avg">Average</string>
-    <string name="med">Median</string>
+    <string name="med">Mode</string>
     <string name="avg_day">Average per Day</string>
 </resources>

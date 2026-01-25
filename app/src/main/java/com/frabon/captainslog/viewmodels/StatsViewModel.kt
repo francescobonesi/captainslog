@@ -25,7 +25,7 @@ data class MonthlyReport(
     val month: Month,
     val totalCount: Int,
     val averagePerDay: Double,
-    val medianPerDay: Double
+    val modePerDay: Int
 )
 
 class StatsViewModel(private val repository: EventRepository) : ViewModel() {
@@ -41,34 +41,43 @@ class StatsViewModel(private val repository: EventRepository) : ViewModel() {
     }
 
     // 2. YEARLY STATISTICS & MONTHLY BREAKDOWN
-    // Calculates detailed stats for every month in the selected year
     val yearStats = combine(allDefecationEvents, _selectedYear) { events, year ->
         val yearEvents = events.filter { it.year == year }
+        val today = LocalDate.now()
 
         Month.entries.map { month ->
             val monthEvents = yearEvents.filter { it.month == month.value }
             val total = monthEvents.size
 
-            // Calculate days in this specific month (handles leap years)
             val yearMonth = YearMonth.of(year, month)
             val daysInMonth = yearMonth.lengthOfMonth()
 
-            // Populate an array of counts for each day (0 to 30/29/27)
-            // Default to 0 for every day
-            val dailyCounts = IntArray(daysInMonth) { 0 }
+            // LOGIC CHANGE 1: Average Calculation
+            // If it's the current month of the current year, use days passed so far (up to today)
+            // Otherwise use the full length of the month
+            val daysForAverage = if (year == today.year && month == today.month) {
+                today.dayOfMonth
+            } else {
+                daysInMonth
+            }
+
+            // Populate daily counts for Mode calculation
+            val dailyCounts = IntArray(daysForAverage) { 0 }
 
             monthEvents.forEach { event ->
-                // event.day is 1-based, array is 0-based
-                if (event.day in 1..daysInMonth) {
+                // Only count events that happened within the valid range (1..daysForAverage)
+                if (event.day in 1..daysForAverage) {
                     dailyCounts[event.day - 1]++
                 }
             }
 
             // Calculate Stats
-            val average = if (daysInMonth > 0) total.toDouble() / daysInMonth else 0.0
-            val median = calculateMedian(dailyCounts)
+            val average = if (daysForAverage > 0) total.toDouble() / daysForAverage else 0.0
 
-            MonthlyReport(month, total, average, median)
+            // LOGIC CHANGE 2: Mode Calculation
+            val mode = calculateMode(dailyCounts)
+
+            MonthlyReport(month, total, average, mode)
         }
     }.asLiveData()
 
@@ -77,17 +86,43 @@ class StatsViewModel(private val repository: EventRepository) : ViewModel() {
         val yearEvents = events.filter { it.year == year }
         val total = yearEvents.size
 
-        // Calculate denominator (days passed so far if current year, or full year if past)
         val today = LocalDate.now()
-        val daysToCount = if (year == today.year) {
-            today.dayOfYear // Divide only by days passed so far
-        } else {
-            if (YearMonth.of(year, 2).isLeapYear) 366 else 365
+
+        // Calculate the denominator (daysToCount)
+        val daysToCount: Long = when {
+            // CASE A: Future Year (Shouldn't happen via UI, but safe to handle)
+            year > today.year -> 0
+
+            // CASE B: Past Year -> Use full days in year
+            year < today.year -> {
+                if (YearMonth.of(year, 2).isLeapYear) 366L else 365L
+            }
+
+            // CASE C: Current Year -> The Dynamic Logic
+            else -> {
+                // 1. Are there events in previous years?
+                val hasHistory = events.any { it.year < year }
+
+                if (hasHistory) {
+                    // Standard count: Jan 1st to Today
+                    today.dayOfYear.toLong()
+                } else {
+                    // "Fresh Start" count: First Event Date to Today
+                    val firstEvent = yearEvents.firstOrNull() // yearEvents is already sorted
+                    if (firstEvent != null) {
+                        val firstDate = LocalDate.of(firstEvent.year, firstEvent.month, firstEvent.day)
+                        // ChronoUnit.DAYS.between(today, today) is 0, so we add 1 to include the start day
+                        ChronoUnit.DAYS.between(firstDate, today) + 1
+                    } else {
+                        // No events yet this year, avoid division by zero (total is 0 anyway)
+                        1L
+                    }
+                }
+            }
         }
 
         val average = if (daysToCount > 0) total.toDouble() / daysToCount else 0.0
 
-        // Return Pair(Total, Average)
         Pair(total, average)
     }.asLiveData()
 
@@ -117,15 +152,16 @@ class StatsViewModel(private val repository: EventRepository) : ViewModel() {
 
     // --- HELPER FUNCTIONS ---
 
-    private fun calculateMedian(intArray: IntArray): Double {
-        if (intArray.isEmpty()) return 0.0
-        val sorted = intArray.sorted()
-        val size = sorted.size
-        return if (size % 2 == 0) {
-            (sorted[size / 2 - 1] + sorted[size / 2]) / 2.0
-        } else {
-            sorted[size / 2].toDouble()
-        }
+    private fun calculateMode(intArray: IntArray): Int {
+        if (intArray.isEmpty()) return 0
+
+        // Group by value -> count frequency
+        // e.g. [0, 2, 0, 1, 2, 0] -> {0=3, 2=2, 1=1} -> Mode is 0
+        val frequencies = intArray.toTypedArray().groupingBy { it }.eachCount()
+
+        // Return the value with the highest frequency
+        // In case of a tie, we take the largest number (arbitrary choice)
+        return frequencies.maxByOrNull { it.value }?.key ?: 0
     }
 
     private fun calculateStreaks(events: List<Event>): Pair<StreakInfo, StreakInfo> {

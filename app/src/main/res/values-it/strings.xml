@@ -59,6 +59,6 @@
     <string name="month">Mese</string>
     <string name="total">Totale</string>
     <string name="avg">Media</string>
-    <string name="med">Mediana</string>
+    <string name="med">Moda</string>
     <string name="avg_day">Media al Giorno</string>
 </resources>

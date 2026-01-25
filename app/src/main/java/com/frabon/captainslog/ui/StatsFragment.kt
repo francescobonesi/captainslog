@@ -52,7 +52,7 @@ class StatsFragment : Fragment() {
     private fun setupSpinners() {
         // Years Spinner (2020 - 2030)
         val currentYear = LocalDate.now().year
-        val years = (currentYear-20..currentYear+20).toList()
+        val years = (currentYear-20..currentYear).toList()
         val yearAdapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, years)
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -139,12 +139,9 @@ class StatsFragment : Fragment() {
                         setPadding(16, 8, 16, 8)
                     })
 
-                    // Median
+                    // Mode
                     row.addView(TextView(context).apply {
-                        text = String.format(
-                            "%.0f",
-                            report.medianPerDay
-                        ) // Median is usually integer-ish for counts
+                        text = report.modePerDay.toString()
                         gravity = android.view.Gravity.CENTER
                         setPadding(16, 8, 16, 8)
                     })
@@ -153,34 +150,6 @@ class StatsFragment : Fragment() {
                 }
             }
         }
-
-
-//        // A) Monthly Table
-//        statsViewModel.yearStats.observe(viewLifecycleOwner) { counts ->
-//            binding.monthsTable.removeAllViews()
-//            val months = Month.entries.toTypedArray()
-//
-//            counts.forEachIndexed { index, count ->
-//                if (count > 0) { // Only show non-zero months? Or all? Let's show all or just non-zero
-//                    val row = TableRow(context)
-//                    row.addView(TextView(context).apply {
-//                        text = months[index].getDisplayName(
-//                            TextStyle.FULL,
-//                            Locale.getDefault()
-//                        ); setPadding(8, 8, 8, 8)
-//                    })
-//                    row.addView(TextView(context).apply {
-//                        text = count.toString(); setPadding(
-//                        8,
-//                        8,
-//                        8,
-//                        8
-//                    )
-//                    })
-//                    binding.monthsTable.addView(row)
-//                }
-//            }
-//        }
 
         // B) Daily Chart
         statsViewModel.dailyCounts.observe(viewLifecycleOwner) { dailyMap ->
