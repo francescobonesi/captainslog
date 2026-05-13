@@ -1,0 +1,23 @@
+<p>Your Personal Log for Navigating the Inner Cosmos.</p>
+
+<p>Ever wondered about the rhythms of your digestive system? <b>Captain's Log</b> is the elegant and discreet Android app designed to help you meticulously track, categorize, and analyze your most... *personal* daily events. Become the captain of your gut health and chart your course through the inner cosmos. 🚽💩</p>
+
+<h2>✨ Why You'll Love Captain's Log:</h2>
+
+<ul>
+<li><b>Effortless Logging:</b> Easily record your daily 'deposits' and other significant bodily functions with just a few taps. Keep everything neatly organized.</li>
+<li><b>Statistical Insights:</b> Gain profound insights into your digestive habits! View summaries of frequency, consistency, and timing. Are you regular? The data will tell! 📊</li>
+<li><b>Unique Stardate Tracking:</b> Each log entry is timestamped with a unique "Stardate," a playful nod to Star Trek. Feel like you're truly logging your missions in space! 🖖</li>
+<li><b>Intuitive & Discreet:</b> Enjoy a modern, user-friendly interface that makes managing your logs a breeze. Quickly filter by category or search for specific entries. Your secrets are safe with Captain's Log. 😉</li>
+<li><b>Your Data, Your Control:</b> Easily export all your precious logs for safekeeping or import them back with a simple CSV file, giving you complete control over your data.</li>
+</ul>
+
+<p><b>Captain's Log</b> is more than just a tracker; it's your dedicated partner in understanding your body's inner workings. Built with the latest Android technology, it's reliable, secure, and a delight to use.</p>
+
+<hr>
+
+<p>Support Independent Development:</p>
+
+<p>If you love Captain's Log and wish to support its continued development, please consider a donation. Your generosity helps keep this app free and open-source!</p>
+
+<p><a href="https://paypal.me/frabon0">Buy me a coffee</a></p>
